@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <style>
+    .h1, h1 {
+      font-size: 3.8rem;
+      margin: 166px 411px;
+      font-family: emoji;
+  }
+  
+.h3, h3 {
+    font-size: 1.75rem;
+    margin: 175px 481px;
+}
+  
+  </style>
+  <body>
+ 
+    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="wings">Home</a>
+              </li>
+              
+
+              <li class="nav-item">
+                <a class="nav-link" href="contact">Contacts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="wings">tracker</a>
+              </li>
+          
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+  
+
+
+    
+
+       
+
+
+
+
+
+
+    <!-- Button trigger modal -->
+
+    {% comment %} {% if user.is_authenticated %}
+    Logged in as {{request.lusername}}
+    {% else %} {% endcomment %}
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
+    Login
+  </button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SignupModal">
+    Signup
+  </button>
+
+  {% comment %} {% endif %} {% endcomment %}
+  <!-- signupModal -->
+  <div class="modal fade" id="SignupModal" tabindex="-1" aria-labelledby="SignupModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="SignupModaltitle">SignUp Here</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form action='sign' method="POST">
+            {%csrf_token%}
+          <div class="form-group">
+            <label for='usernam' >Username</label>
+            <input type="text" class="form-control" id='usernam' name='username' placeholder='user name'>
+          </div>
+          <div class="form-group">
+            <label for="fnam">firstname</label>
+            <input type="text" class="form-control" id="fnam" name="fname" placeholder="first name">
+          </div>
+          <div class="form-group">
+            <label for="lastnam" >Last name</label>
+            <input type="text" class="form-control" id="lastnam" name="lastname" placeholder="last name">
+          </div>
+          
+          <div class="form-group">
+            <label for="emai" >E mail</label>
+            <input type="text" class="form-control" id="emai" name="email" placeholder="email">
+          </div>
+          
+          <div class="form-group">
+            <label for="pas" >password</label>
+            <input type="text" class="form-control" id="pas" name="pass1" placeholder="pass">
+          </div>
+          <div class="form-group">
+            <label for="pa" > Again password</label>
+            <input type="text" class="form-control" id="pa" name="pass2" placeholder="pass2">
+          </div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
+
+  {% comment %} Loginmodal {% endcomment %}
+
+  <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="LoginModaltitle">Login Here</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          <form action="\login",method='post'>
+            <div class="form-group">
+              <label for="loginusername" >Username</label>
+            <input type="text" class="form-control" id="loginusername",name="loginusername" placeholder="username">
+          </div>
+          <div class="form-group">
+            <label for="loginpassword" >password</label>
+            <input type="text" class="form-control" id="loginpassword",name="loginpassword" placeholder="pass">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary mx-4">Login</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h1 class="mx-12 mx-9 my-9 my-15"  
+      >Expense Tracker</h1>
+      <h3>let's start tracking</h3>
+  </div>
+
+ 
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
